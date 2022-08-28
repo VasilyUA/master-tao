@@ -27,6 +27,7 @@
 		"gulp-css-url-adjuster": "^0.2.3",
 		"gulp-file-include": "^2.3.0",
 		"gulp-gh-pages": "^0.5.4",
+		"gulp-group-css-media-queries": "^1.2.2",
 		"gulp-html-beautify": "^1.0.1",
 		"gulp-newer": "^1.4.0",
 		"gulp-notify": "^4.0.0",

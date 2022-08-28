@@ -21,6 +21,7 @@ import cleanCSS from 'gulp-cleancss';
 import include from 'gulp-file-include'; //inclue
 import htmlbeautify from 'gulp-html-beautify';
 import urlAdjuster from 'gulp-css-url-adjuster';
+import gcmq from 'gulp-group-css-media-queries';
 
 const dirs = {
 	source: 'src', // папка с исходниками (путь от корня проекта)
@@ -37,6 +38,7 @@ gulp.task('sass', function () {
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(sourcemaps.init()) // инициируем карту кода
 		.pipe(sass()) // компилируем
+		.pipe(gcmq())
 		.pipe(
 			postcss([
 				// делаем постпроцессинг
