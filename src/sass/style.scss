@@ -16,6 +16,8 @@ body {
 
 .row {
 	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 // helpers
@@ -27,6 +29,7 @@ body {
 @import 'elements/_section-title';
 @import 'elements/_rectangle';
 @import 'elements/_custom-indicators';
+@import 'elements/_prospect-card';
 
 // layout
 @import 'layout/_header';

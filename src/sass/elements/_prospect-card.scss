@@ -1,0 +1,45 @@
+.prospect-card {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 4%;
+
+	.prospects__prospect-card_img {
+		border: 1px solid $colorLightGray;
+		border-radius: 50%;
+		height: 113px;
+		width: 113px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.image__prospect-card {
+			border-radius: 50%;
+			margin: 4%;
+			background-color: $colorGreen;
+			height: 93px;
+			width: 93px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			img {
+				height: 50px;
+				width: 50px;
+				margin-left: 5%;
+			}
+		}
+	}
+
+	.text__prospect-card {
+		margin-top: 10%;
+		min-height: 50px;
+		display: flex;
+		text-align: center;
+		p {
+			font-size: 16px;
+		}
+	}
+}

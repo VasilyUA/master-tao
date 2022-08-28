@@ -1,0 +1,24 @@
+.prospects {
+	@include Max_one(991px) {
+		margin-top: 15%;
+		border-radius: 0%;
+		padding: 10% 5% 3% 5%;
+
+		&__prospects_title {
+			margin-top: 1%;
+		}
+
+		&__content {
+			margin-top: 1%;
+		}
+
+		.prospects__prospect-card {
+			margin-top: 20%;
+			margin-bottom: 30%;
+		}
+
+		.prospects__carousel-indicators {
+			bottom: 10%;
+		}
+	}
+}
