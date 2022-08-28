@@ -1,0 +1,102 @@
+.slider {
+  max-width: 1810px;
+  height: 700px;
+  margin: 0 auto;
+  margin-top: 11px;
+
+  .slider__img {
+    height: 700px;
+    width: 100%;
+  }
+
+  .slider__carousel-caption {
+    height: 78%;
+    max-width: 100%;
+    top: 0%;
+    left: 19%;
+    text-align: start;
+    display: flex;
+    align-items: center;
+
+    .slider__caption_block {
+      max-width: 40%;
+
+      @include Media_width(1600px, 992px) {
+        max-width: 60%;
+      }
+
+      h1 {
+        font-size: calc(1.475rem + 1.5vw);
+        font-weight: 700;
+        color: $colorWhite;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding-bottom: 15px;
+      }
+
+      p {
+        color: #fff;
+        font-weight: 100;
+        margin-bottom: 0;
+      }
+
+      .carousel__carousel-caption-btn {
+        width: 24.5%;
+        position: absolute;
+        height: 65px;
+        margin-top: 21px;
+        background-color: $colorOrange;
+        border-radius: 50px;
+        color: $colorWhite;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include Media_width(1600px, 992px) {
+          width: 40%;
+        }
+
+        span {
+          margin-left: 12%;
+        }
+
+        img {
+          margin-right: 2%;
+        }
+      }
+    }
+  }
+
+  .slider__carousel-indicators {
+    bottom: 8%;
+
+    button {
+      width: 4px;
+      height: 4px;
+      margin: 0 12px;
+      border-radius: 50%;
+      background-color: $colorTransparent;
+      border: 2px solid $colorWhite;
+    }
+
+    button.active {
+      background-color: $colorWhite;
+    }
+  }
+
+  .carousel-control-next-icon {
+    position: absolute;
+    top: 40%;
+    right: 50%;
+    height: 142px;
+    width: 53px;
+  }
+
+  .carousel-control-prev-icon {
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    height: 142px;
+    width: 53px;
+  }
+}

@@ -1,0 +1,36 @@
+@import '_variables';
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: $colorBlack;
+}
+
+.container {
+	padding: 0;
+	max-width: 1136px;
+	margin: 0 auto;
+}
+
+.row {
+	width: 100%;
+}
+
+// helpers
+@import 'helpers/fonts.scss';
+@import 'helpers/_mixin';
+
+// elements
+@import 'elements/_orang-buton-with-vector';
+@import 'elements/_section-title';
+@import 'elements/_rectangle';
+@import 'elements/_custom-indicators';
+
+// layout
+@import 'layout/_header';
+@import 'layout/_footer';
+
+// pages
+@import 'sections/home/index.scss';

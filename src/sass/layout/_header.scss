@@ -1,0 +1,83 @@
+.header {
+	.header__navbar {
+		height: 100px;
+		@include Max_one(991px) {
+			height: 77px;
+			padding: 0;
+			align-items: flex-start;
+		}
+	}
+
+	.navbar-brand {
+		.header_logo {
+			@include Max_one(991px) {
+				height: 40px;
+				width: 137px;
+				margin: 15px 0 0px 15px;
+			}
+		}
+	}
+
+	.header__navbar_button {
+		border: none;
+		margin: 21px 22px 0 0;
+		span {
+			color: #fff;
+		}
+
+		&:focus {
+			border: none;
+			box-shadow: none;
+		}
+	}
+
+	.header__navbar-collapse {
+		z-index: 100;
+		@include Max_one(991px) {
+			max-width: 100%;
+			min-height: 520px;
+			background-color: $colorGray;
+			font-size: 1.5rem;
+			.header_nav_block {
+				margin-top: 1rem;
+				.header__list {
+					li {
+						padding: 10px 0;
+						width: 100%;
+
+						a.nav-link {
+							letter-spacing: 0.07rem;
+							color: $colorWhite;
+						}
+					}
+				}
+			}
+		}
+
+		.header__list {
+			margin-top: 3px;
+			li {
+				color: $colorWhite;
+
+				a.nav-link {
+					letter-spacing: 0.07rem;
+					color: $colorWhite;
+				}
+			}
+		}
+	}
+
+	.header__button {
+		width: 169px;
+		height: 48px;
+		border-radius: 50px;
+		color: $colorWhite;
+		background: $colorOrange;
+
+		@include Max_one(991px) {
+			margin-top: 10px;
+			width: 300px;
+			height: 66px;
+		}
+	}
+}

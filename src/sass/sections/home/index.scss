@@ -1,0 +1,10 @@
+.main-home-page {
+	// sections home
+	@import 'sections/home/slider/_slider.scss';
+	@import 'sections/home/calculation_order/_calculation_order';
+	@import 'sections/home/prospects/_prospects';
+
+	// sections home mobile
+	@import 'sections/home/slider/_slider-phone.scss';
+	@import 'sections/home/calculation_order/calculation_order-phone';
+}
