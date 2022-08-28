@@ -51,6 +51,7 @@ gulp.task('sass', function () {
 				prepend: '/',
 			}),
 		)
+		.pipe(replace('/img/', '../img/'))
 		.pipe(sourcemaps.write('/')) // записываем карту кода как отдельный файл (путь из константы)
 		.pipe(gulp.dest(dirs.build + '/css/')) // записываем CSS-файл (путь из константы)
 		.pipe(browserSync.stream())
