@@ -67,17 +67,19 @@
 		}
 	}
 
-	.header__button {
-		width: 169px;
-		height: 48px;
-		border-radius: 50px;
-		color: $colorWhite;
-		background: $colorOrange;
-
-		@include Max_one(991px) {
-			margin-top: 10px;
-			width: 300px;
-			height: 66px;
+	.header__button_block {
+		padding-right: 3%;
+		.header__button {
+			width: 169px;
+			height: 48px;
+			border-radius: 50px;
+			color: $colorWhite;
+			background: $colorOrange;
+			@include Max_one(991px) {
+				margin-top: 10px;
+				width: 300px;
+				height: 66px;
+			}
 		}
 	}
 }
