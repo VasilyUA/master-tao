@@ -20,6 +20,7 @@ import plumber from 'gulp-plumber';
 import cleanCSS from 'gulp-cleancss';
 import include from 'gulp-file-include'; //inclue
 import htmlbeautify from 'gulp-html-beautify';
+import urlAdjuster from 'gulp-css-url-adjuster';
 
 const dirs = {
 	source: 'src', // папка с исходниками (путь от корня проекта)
@@ -44,6 +45,11 @@ gulp.task('sass', function () {
 				}), // автопрефиксирование
 				mqpacker({ sort: true }), // объединение медиавыражений
 			]),
+		)
+		.pipe(
+			urlAdjuster({
+				prepend: '/',
+			}),
 		)
 		.pipe(sourcemaps.write('/')) // записываем карту кода как отдельный файл (путь из константы)
 		.pipe(gulp.dest(dirs.build + '/css/')) // записываем CSS-файл (путь из константы)
