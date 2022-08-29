@@ -22,6 +22,7 @@ import include from 'gulp-file-include'; //inclue
 import htmlbeautify from 'gulp-html-beautify';
 import urlAdjuster from 'gulp-css-url-adjuster';
 import gcmq from 'gulp-group-css-media-queries';
+import htmlmin from 'gulp-htmlmin';
 
 const dirs = {
 	source: 'src', // папка с исходниками (путь от корня проекта)
@@ -58,7 +59,7 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest(dirs.build + '/css/')) // записываем CSS-файл (путь из константы)
 		.pipe(browserSync.stream())
 		.pipe(rename('style.min.css')) // переименовываем
-		.pipe(cleanCSS()) // сжимаем
+		.pipe(cleanCSS({ compatibility: 'ie8' })) // сжимаем
 		.pipe(gulp.dest(dirs.build + '/css/')); // записываем CSS-файл (путь из константы)
 });
 
@@ -68,6 +69,12 @@ gulp.task('html', function () {
 		.src(dirs.source + '/*.html') // какие файлы обрабатывать (путь из константы, маска имени)
 		.pipe(include())
 		.pipe(htmlbeautify())
+		.pipe(
+			htmlmin({
+				collapseWhitespace: true, // удаляем все переносы
+				removeComments: true, // удаляем все комментарии
+			}),
+		)
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(replace(/\n\s*<!--DEV[\s\S]+?-->/gm, '')) // убираем комментарии <!--DEV ... -->
 		.pipe(gulp.dest(dirs.build)); // записываем файлы (путь из константы)
