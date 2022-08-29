@@ -13,7 +13,7 @@ import { deleteAsync as del } from 'del';
 import browserSync from 'browser-sync';
 import ghPages from 'gulp-gh-pages';
 import newer from 'gulp-newer';
-import uglify from 'gulp-uglify';
+import uglify from 'gulp-minify';
 import concat from 'gulp-concat';
 import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
@@ -118,8 +118,7 @@ gulp.task('js', function () {
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(concat('script.js'))
 		.pipe(gulp.dest(dirs.build + '/js'))
-		.pipe(rename('script-min.js'))
-		.pipe(uglify())
+		.pipe(uglify({ ignoreFiles: ['congig.js'] }))
 		.pipe(gulp.dest(dirs.build + '/js'))
 		.pipe(browserSync.stream());
 });
@@ -178,21 +177,8 @@ gulp.task(
 		);
 
 		gulp.watch(
-			// следим за SVG
-			dirs.source + '/img/svg-sprite/*.svg',
-			// gulp.series("svgstore", "html", reloader)
-			gulp.series('html', reloader),
-		);
-
-		gulp.watch(
-			dirs.source + '/img/png-sprite/*.png',
-			// gulp.series("png:sprite", "sass")
-			gulp.series('sass'),
-		);
-
-		gulp.watch(
 			// следим за изображениями
-			dirs.source + '/img/*.{gif,png,jpg,jpeg,svg}',
+			dirs.source + '/img/**/*.{gif,png,jpg,jpeg,svg}',
 			gulp.series('img', reloader), // при изменении оптимизируем, копируем и обновляем в браузере
 		);
 
