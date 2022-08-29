@@ -1,6 +1,6 @@
-name: github pages
+name: Deploy Application
 
-# Controls when the action wil l run.
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -10,7 +10,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-deploy:
+  build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -22,7 +22,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Checkout submodules
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
