@@ -53,3 +53,7 @@ HTML
 For check loding your UI use links:
 https://pagespeed.web.dev/
 https://validator.w3.org/
+
+#### generation ssh key
+
+bash: `ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f "dao" -N ""`
