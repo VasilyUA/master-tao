@@ -48,6 +48,6 @@
 		"prettier": "2.7.1"
 	},
 	"dependencies": {
-		"sass": "^1.54.5"
+		"sass": "^1.54.8"
 	}
 }

@@ -1,5 +1,5 @@
 'use strict';
-// Определим необходимые инструменты
+// Підключаєм необхідні інструменти
 import gulp from 'gulp';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
@@ -18,7 +18,7 @@ import concat from 'gulp-concat';
 import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
 import cleanCSS from 'gulp-cleancss';
-import include from 'gulp-file-include'; //inclue
+import include from 'gulp-file-include';
 import htmlbeautify from 'gulp-html-beautify';
 import urlAdjuster from 'gulp-css-url-adjuster';
 import gcmq from 'gulp-group-css-media-queries';
