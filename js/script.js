@@ -53,11 +53,11 @@ function showFile(file) {
 	}
 }
 ;
-const carouselSlide = document.querySelector('[slider-element="carousel-slide"]');
-const carouselIndicators = document.querySelector('[slider-element="carousel-indicators"]');
-const carouselInner = document.querySelector('[slider-element="carousel-inner"]');
-const carouselItemActive = document.querySelector('[slider-element="carousel-item-active"]');
-const carouselItem = document.querySelectorAll('[slider-element="carousel-item"]');
+const carouselSlide = document.querySelector('[data-slider-element="carousel-slide"]');
+const carouselIndicators = document.querySelector('[data-slider-element="carousel-indicators"]');
+const carouselInner = document.querySelector('[data-slider-element="carousel-inner"]');
+const carouselItemActive = document.querySelector('[data-slider-element="carousel-item-active"]');
+const carouselItem = document.querySelectorAll('[data-slider-element="carousel-item"]');
 
 function resize() {
 	if (window.innerWidth <= 991) {
