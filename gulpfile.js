@@ -3,6 +3,7 @@
 import gulp from 'gulp';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
+import webpcss from 'gulp-webpcss'; // Потрібен додатковий модуль npm i -D webp-converter@2.2.3
 import rename from 'gulp-rename';
 import sourcemaps from 'gulp-sourcemaps';
 import postcss from 'gulp-postcss';
@@ -20,9 +21,12 @@ import plumber from 'gulp-plumber';
 import cleanCSS from 'gulp-cleancss';
 import include from 'gulp-file-include';
 import htmlbeautify from 'gulp-html-beautify';
+// import webpHtmlosvg from 'gulp-webp-html-nosvg';
 import urlAdjuster from 'gulp-css-url-adjuster';
 import gcmq from 'gulp-group-css-media-queries';
 import htmlmin from 'gulp-htmlmin';
+import webp from 'gulp-webp';
+import imagemin from 'gulp-imagemin';
 
 const dirs = {
 	source: 'src', // папка с исходниками (путь от корня проекта)
@@ -41,10 +45,18 @@ gulp.task('sass', function () {
 		.pipe(sass()) // компилируем
 		.pipe(gcmq())
 		.pipe(
+			webpcss({
+				webpClass: '.webp',
+				noWebpClass: '.no-webp',
+			}),
+		)
+		.pipe(
 			postcss([
 				// делаем постпроцессинг
 				autoprefixer({
-					overrideBrowserslist: ['last 2 version', 'last 7 Chrome versions', 'last 10 Opera versions', 'last 7 Firefox versions'],
+					grid: true,
+					cascade: true,
+					overrideBrowserslist: ['last 5 version'],
 				}), // автопрефиксирование
 				mqpacker({ sort: true }), // объединение медиавыражений
 			]),
@@ -54,7 +66,7 @@ gulp.task('sass', function () {
 				prepend: '/',
 			}),
 		)
-		.pipe(replace('/img/', '../img/'))
+		.pipe(replace('img/', '../img/'))
 		.pipe(sourcemaps.write('/')) // записываем карту кода как отдельный файл (путь из константы)
 		.pipe(gulp.dest(dirs.build + '/css/')) // записываем CSS-файл (путь из константы)
 		.pipe(browserSync.stream())
@@ -77,6 +89,7 @@ gulp.task('html', function () {
 		)
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(replace(/\n\s*<!--DEV[\s\S]+?-->/gm, '')) // убираем комментарии <!--DEV ... -->
+		.pipe(replace('img', '../img')) // убираем комментарии <!--DEV ... -->
 		.pipe(gulp.dest(dirs.build)); // записываем файлы (путь из константы)
 });
 
@@ -85,12 +98,19 @@ gulp.task('img', function () {
 	return gulp
 		.src(
 			[
-				dirs.source + '/img/**/*.{gif,png,jpg,jpeg,svg}', // какие файлы обрабатывать (путь из константы, маска имени, много расширений)
+				dirs.source + '/img/**/*.{gif,png,jpg,jpeg,webp}', // какие файлы обрабатывать (путь из константы, маска имени, много расширений)
 			],
 			{ since: gulp.lastRun('img') }, // оставим в потоке обработки только изменившиеся от последнего запуска задачи (в этой сессии) файлы
 		)
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(newer(dirs.build + '/img')) // оставить в потоке только новые файлы (сравниваем с содержимым папки билда)
+		.pipe(webp())
+		.pipe(gulp.dest(dirs.build + '/img')) // записываем файлы (путь из константы)
+		.pipe(gulp.src(dirs.source + '/img/**/*.{gif,png,jpg,jpeg,webp}')) // записываем файлы (путь из константы)
+		.pipe(newer(dirs.build + '/img')) // оставить в потоке только новые файлы (сравниваем с содержимым папки билда)
+		.pipe(imagemin({ progressive: true, svgoPlugins: [{ removeViewBox: false }], interlaced: true, optimizationLevel: 3 })) // минифицируем изображения (прогрессивно, с сохранением прозрачности изображений, с сжатием до оптимального размера)
+		.pipe(gulp.dest(dirs.build + '/img')) // записываем файлы (путь из константы)
+		.pipe(gulp.src(dirs.source + '/img/**/*.svg')) // записываем файлы (путь из константы)
 		.pipe(gulp.dest(dirs.build + '/img')); // записываем файлы (путь из константы)
 });
 
@@ -178,7 +198,7 @@ gulp.task(
 
 		gulp.watch(
 			// следим за изображениями
-			dirs.source + '/img/**/*.{gif,png,jpg,jpeg,svg}',
+			dirs.source + '/img/**/*.{gif,png,jpg,jpeg,svg,webp}',
 			gulp.series('img', reloader), // при изменении оптимизируем, копируем и обновляем в браузере
 		);
 
