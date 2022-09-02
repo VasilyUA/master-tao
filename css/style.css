@@ -431,8 +431,8 @@ main {
   border-color: #ffffff;
 }
 
-.main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] {
-  background-image: url("../img/calculation_order/check-vector.png");
+.no-webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] {
+  background-image: url("/../img/calculation_order/check-vector.png");
 }
 
 .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-drag-and-drop-file .drag-and-drop-file {
@@ -488,6 +488,10 @@ main {
 
 .main-home-page .prospects__content {
   margin-top: 1%;
+}
+
+.webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] {
+  background-image: url("/../img/calculation_order/check-vector.webp");
 }
 
 @media screen and (max-width: 1250px) and (min-width: 991px) {
@@ -576,6 +580,7 @@ main {
     top: 50%;
     left: 60%;
     -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
   }
