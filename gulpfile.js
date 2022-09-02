@@ -21,7 +21,7 @@ import plumber from 'gulp-plumber';
 import cleanCSS from 'gulp-cleancss';
 import include from 'gulp-file-include';
 import htmlbeautify from 'gulp-html-beautify';
-// import webpHtmlosvg from 'gulp-webp-html-nosvg';
+import webpHtmlosvg from 'gulp-webp-html-nosvg';
 import urlAdjuster from 'gulp-css-url-adjuster';
 import gcmq from 'gulp-group-css-media-queries';
 import htmlmin from 'gulp-htmlmin';
@@ -81,6 +81,7 @@ gulp.task('html', function () {
 		.src(dirs.source + '/*.html') // какие файлы обрабатывать (путь из константы, маска имени)
 		.pipe(include())
 		.pipe(htmlbeautify())
+		.pipe(webpHtmlosvg())
 		.pipe(
 			htmlmin({
 				collapseWhitespace: true, // удаляем все переносы
@@ -89,7 +90,6 @@ gulp.task('html', function () {
 		)
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(replace(/\n\s*<!--DEV[\s\S]+?-->/gm, '')) // убираем комментарии <!--DEV ... -->
-		.pipe(replace('img', '../img')) // убираем комментарии <!--DEV ... -->
 		.pipe(gulp.dest(dirs.build)); // записываем файлы (путь из константы)
 });
 
