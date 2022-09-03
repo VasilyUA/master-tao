@@ -21,6 +21,14 @@ body {
 	margin-right: auto;
 }
 
+.carousel-control-prev-icon {
+	background-image: url('img/slider-vector-left.svg');
+}
+
+.carousel-control-next-icon {
+	background-image: url('img/slider-vector-right.svg');
+}
+
 // helpers
 @import 'helpers/fonts.scss';
 @import 'helpers/_mixin';

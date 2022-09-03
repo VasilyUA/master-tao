@@ -21,12 +21,13 @@ import plumber from 'gulp-plumber';
 import cleanCSS from 'gulp-cleancss';
 import include from 'gulp-file-include';
 import htmlbeautify from 'gulp-html-beautify';
-import webpHtmlosvg from 'gulp-webp-html-nosvg';
+import webpHtmlNoSvg from 'gulp-webp-html-nosvg';
 import urlAdjuster from 'gulp-css-url-adjuster';
 import gcmq from 'gulp-group-css-media-queries';
 import htmlmin from 'gulp-htmlmin';
 import webp from 'gulp-webp';
 import imagemin from 'gulp-imagemin';
+import gulpcache from 'gulp-cache';
 
 const dirs = {
 	source: 'src', // папка с исходниками (путь от корня проекта)
@@ -81,7 +82,7 @@ gulp.task('html', function () {
 		.src(dirs.source + '/*.html') // какие файлы обрабатывать (путь из константы, маска имени)
 		.pipe(include())
 		.pipe(htmlbeautify())
-		.pipe(webpHtmlosvg())
+		.pipe(webpHtmlNoSvg())
 		.pipe(
 			htmlmin({
 				collapseWhitespace: true, // удаляем все переносы
@@ -95,6 +96,11 @@ gulp.task('html', function () {
 
 // ЗАДАЧА: Копирование изображений
 gulp.task('img', function () {
+	const doImagemin =
+		// eslint-disable-next-line no-undef
+		process.env.NODE_ENV === 'dev'
+			? plumber({ errorHandler: onError })
+			: imagemin({ progressive: true, svgoPlugins: [{ removeViewBox: false }], interlaced: true, optimizationLevel: 3 });
 	return gulp
 		.src(
 			[
@@ -108,7 +114,7 @@ gulp.task('img', function () {
 		.pipe(gulp.dest(dirs.build + '/img')) // записываем файлы (путь из константы)
 		.pipe(gulp.src(dirs.source + '/img/**/*.{gif,png,jpg,jpeg,webp}')) // записываем файлы (путь из константы)
 		.pipe(newer(dirs.build + '/img')) // оставить в потоке только новые файлы (сравниваем с содержимым папки билда)
-		.pipe(imagemin({ progressive: true, svgoPlugins: [{ removeViewBox: false }], interlaced: true, optimizationLevel: 3 })) // минифицируем изображения (прогрессивно, с сохранением прозрачности изображений, с сжатием до оптимального размера)
+		.pipe(doImagemin) // минифицируем изображения (прогрессивно, с сохранением прозрачности изображений, с сжатием до оптимального размера)
 		.pipe(gulp.dest(dirs.build + '/img')) // записываем файлы (путь из константы)
 		.pipe(gulp.src(dirs.source + '/img/**/*.svg')) // записываем файлы (путь из константы)
 		.pipe(gulp.dest(dirs.build + '/img')); // записываем файлы (путь из константы)
@@ -187,7 +193,7 @@ gulp.task(
 			[
 				dirs.source + '/**/*.html', // в папке с исходниками
 			],
-			gulp.series('html', reloader), // при изменении файлов запускаем пересборку HTML и обновление в браузере
+			gulp.series('html', clearCache, reloader), // при изменении файлов запускаем пересборку HTML и обновление в браузере
 		);
 
 		gulp.watch(
@@ -220,8 +226,11 @@ gulp.task('default', gulp.series('serve'));
 
 // Дополнительная функция для перезагрузки в браузере
 function reloader(done) {
-	browserSync.reload();
+	browserSync.reload({ stream: true });
 	done();
+}
+function clearCache(done) {
+	return gulpcache.clearAll(done);
 }
 
 const onError = function (err) {
