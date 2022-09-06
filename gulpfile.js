@@ -156,7 +156,24 @@ gulp.task('copy', function () {
 
 // ЗАДАЧА: сборка сss-библиотек
 gulp.task('copy-css', function () {
-	return gulp.src(dirs.source + '/css/blueimp-gallery.min.css').pipe(gulp.dest('build' + '/css'));
+	return gulp
+		.src(dirs.source + '/sass/library/library.scss')
+		.pipe(plumber({ errorHandler: onError }))
+		.pipe(sass()) // компилируем
+		.pipe(
+			postcss([
+				// делаем постпроцессинг
+				autoprefixer({
+					grid: true,
+					cascade: true,
+					overrideBrowserslist: ['last 5 version'],
+				}), // автопрефиксирование
+				mqpacker({ sort: true }), // объединение медиавыражений
+			]),
+		)
+		.pipe(cleanCSS({ compatibility: 'ie8' })) // сжимаем
+		.pipe(rename('library.min.css')) // записываем CSS-файл (путь из константы); // переименовываем;
+		.pipe(gulp.dest(dirs.build + '/css/'));
 });
 
 // ЗАДАЧА: Сборка всего
@@ -167,7 +184,7 @@ gulp.task(
 		'clean', // последовательно: очистку папки сборки
 		// "svgstore",
 		// "png:sprite",
-		gulp.parallel('sass', 'img', 'js', 'copy'),
+		gulp.parallel('sass', 'copy-css', 'img', 'js', 'copy'),
 		'html',
 		// последовательно: сборку разметки
 	),
@@ -199,8 +216,9 @@ gulp.task(
 		gulp.watch(
 			// следим
 			dirs.source + '/sass/**/*.scss',
-			gulp.series('sass', reloader), // при изменении запускаем компиляцию (обновление браузера — в задаче компиляции)
-		);
+			gulp.series('copy-css', reloader),
+			gulp.series('sass', reloader),
+		); // при изменении запускаем компиляцию (обновление браузера — в задаче компиляции)
 
 		gulp.watch(
 			// следим за изображениями
