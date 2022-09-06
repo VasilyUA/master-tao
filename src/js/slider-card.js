@@ -1,7 +1,7 @@
 let items = document.querySelectorAll('.slider-cards-element .carousel-item');
 
 items.forEach((el) => {
-	const minPerSlide = 4;
+	const minPerSlide = 3;
 	let next = el.nextElementSibling;
 	for (let i = 1; i < minPerSlide; i++) {
 		if (!next) {

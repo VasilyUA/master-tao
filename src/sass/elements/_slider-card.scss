@@ -1,5 +1,5 @@
 .slider-cards-element {
-	@include Max_one(767px) {
+	@include Max_one(991px) {
 		.carousel-inner .carousel-item > div {
 			display: none;
 		}
@@ -28,4 +28,23 @@
 	.carousel-inner .carousel-item-start {
 		transform: translateX(0);
 	}
+
+	.carousel-control-prev {
+		right: 100%;
+		left: auto;
+	}
+
+	.carousel-control-next {
+		left: 100%;
+		right: auto;
+	}
+
+	// .card {
+	// 	margin-left: 5%;
+	// 	background-color: $colorTransparent;
+	// 	margin-right: 5%;
+	// 	img {
+	// 		width: 30%;
+	// 	}
+	// }
 }
