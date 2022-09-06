@@ -1,4 +1,10 @@
 .delivery-options {
 	color: $colorWhite;
-	border-radius: 0%;
+	&__title {
+		margin-top: 4%;
+		h2::after {
+			width: 5%;
+			border-bottom: 2px solid $colorGreen;
+		}
+	}
 }
