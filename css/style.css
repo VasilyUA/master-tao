@@ -491,7 +491,7 @@ main {
 }
 
 .main-home-page .prospects__prospects_title {
-  margin-top: 1%;
+  margin-top: 2%;
 }
 
 .main-home-page .prospects__content {
@@ -500,7 +500,15 @@ main {
 
 .main-home-page .delivery-options {
   color: #ffffff;
-  border-radius: 0%;
+}
+
+.main-home-page .delivery-options__title {
+  margin-top: 4%;
+}
+
+.main-home-page .delivery-options__title h2::after {
+  width: 5%;
+  border-bottom: 2px solid #89c249;
 }
 
 .webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] {
