@@ -27,7 +27,7 @@ import gcmq from 'gulp-group-css-media-queries';
 import htmlmin from 'gulp-htmlmin';
 import webp from 'gulp-webp';
 import imagemin from 'gulp-imagemin';
-import gulpcache from 'gulp-cache';
+import cache from 'gulp-cache';
 
 const dirs = {
 	source: 'src', // папка с исходниками (путь от корня проекта)
@@ -70,10 +70,10 @@ gulp.task('sass', function () {
 		.pipe(replace('img/', '../img/'))
 		.pipe(sourcemaps.write('/')) // записываем карту кода как отдельный файл (путь из константы)
 		.pipe(gulp.dest(dirs.build + '/css/')) // записываем CSS-файл (путь из константы)
-		.pipe(browserSync.stream())
 		.pipe(rename('style.min.css')) // переименовываем
 		.pipe(cleanCSS({ compatibility: 'ie8' })) // сжимаем
-		.pipe(gulp.dest(dirs.build + '/css/')); // записываем CSS-файл (путь из константы)
+		.pipe(gulp.dest(dirs.build + '/css/'))
+		.pipe(browserSync.stream()); // записываем CSS-файл (путь из константы)
 });
 
 // ЗАДАЧА: Сборка HTML
@@ -91,7 +91,8 @@ gulp.task('html', function () {
 		)
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(replace(/\n\s*<!--DEV[\s\S]+?-->/gm, '')) // убираем комментарии <!--DEV ... -->
-		.pipe(gulp.dest(dirs.build)); // записываем файлы (путь из константы)
+		.pipe(gulp.dest(dirs.build))
+		.pipe(browserSync.stream()); // записываем файлы (путь из константы)
 });
 
 // ЗАДАЧА: Копирование изображений
@@ -117,7 +118,8 @@ gulp.task('img', function () {
 		.pipe(doImagemin) // минифицируем изображения (прогрессивно, с сохранением прозрачности изображений, с сжатием до оптимального размера)
 		.pipe(gulp.dest(dirs.build + '/img')) // записываем файлы (путь из константы)
 		.pipe(gulp.src(dirs.source + '/img/**/*.svg')) // записываем файлы (путь из константы)
-		.pipe(gulp.dest(dirs.build + '/img')); // записываем файлы (путь из константы)
+		.pipe(gulp.dest(dirs.build + '/img')) // записываем файлы (путь из константы)
+		.pipe(browserSync.stream());
 });
 
 // ЗАДАЧА: Очистка папки сборки
@@ -176,14 +178,15 @@ gulp.task('copy-css', function () {
 		.pipe(gulp.dest(dirs.build + '/css/'));
 });
 
+gulp.task('clear', () => cache.clearAll());
+
 // ЗАДАЧА: Сборка всего
 gulp.task(
 	'build',
 	gulp.series(
 		// последовательно:
 		'clean', // последовательно: очистку папки сборки
-		// "svgstore",
-		// "png:sprite",
+		'clear',
 		gulp.parallel('sass', 'copy-css', 'img', 'js', 'copy'),
 		'html',
 		// последовательно: сборку разметки
@@ -210,15 +213,20 @@ gulp.task(
 			[
 				dirs.source + '/**/*.html', // в папке с исходниками
 			],
-			gulp.series('html', clearCache, reloader), // при изменении файлов запускаем пересборку HTML и обновление в браузере
+			gulp.series('html', reloader), // при изменении файлов запускаем пересборку HTML и обновление в браузере
 		);
 
 		gulp.watch(
 			// следим
 			dirs.source + '/sass/**/*.scss',
-			gulp.series('copy-css', reloader),
 			gulp.series('sass', reloader),
-		); // при изменении запускаем компиляцию (обновление браузера — в задаче компиляции)
+		);
+
+		gulp.watch(
+			// следим
+			dirs.source + '/sass/library/library.scss',
+			gulp.series('copy-css', reloader),
+		);
 
 		gulp.watch(
 			// следим за изображениями
@@ -244,11 +252,9 @@ gulp.task('default', gulp.series('serve'));
 
 // Дополнительная функция для перезагрузки в браузере
 function reloader(done) {
+	cache.clearAll();
 	browserSync.reload({ stream: true });
 	done();
-}
-function clearCache(done) {
-	return gulpcache.clearAll(done);
 }
 
 const onError = function (err) {
