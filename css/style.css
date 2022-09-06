@@ -232,6 +232,20 @@ body {
   transform: translateX(0);
 }
 
+.slider-cards-element .carousel-control-prev {
+  right: 100%;
+  left: auto;
+}
+
+.slider-cards-element .carousel-control-next {
+  left: 100%;
+  right: auto;
+}
+
+.slider-cards-element .card {
+  margin: auto 5%;
+}
+
 .header .header__navbar {
   height: 100px;
 }
@@ -572,6 +586,14 @@ main {
     height: 4px !important;
   }
 
+  .slider-cards-element .carousel-inner .carousel-item > div {
+    display: none;
+  }
+
+  .slider-cards-element .carousel-inner .carousel-item > div:first-child {
+    display: block;
+  }
+
   .header .header__navbar {
     height: 77px;
     padding: 0;
@@ -743,16 +765,6 @@ main {
 @media screen and (max-width: 991px) and (max-width: 500px) {
   .main-home-page .calculation-order .calculation-order__title h2::after {
     left: 40%;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .slider-cards-element .carousel-inner .carousel-item > div {
-    display: none;
-  }
-
-  .slider-cards-element .carousel-inner .carousel-item > div:first-child {
-    display: block;
   }
 }
 /*# sourceMappingURL=style.css.map */
