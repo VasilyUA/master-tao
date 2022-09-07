@@ -1,20 +1,39 @@
 .orang-buton-with-vector {
-  width: 14.5%;
-  position: absolute;
-  height: 65px;
-  background-color: $colorOrange;
-  border-radius: 50px;
-  color: $colorWhite;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1rem;
+	width: 14.5%;
+	position: absolute;
+	height: 65px;
+	background-color: $colorOrange;
+	border-radius: 50px;
+	color: $colorWhite;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 1rem;
 
-  span {
-    margin-left: 12%;
-  }
+	span {
+		margin-left: 12%;
+	}
 
-  img {
-    margin-right: 2%;
-  }
+	img {
+		margin-right: 2%;
+	}
+}
+
+.orang-buton-withoyt-vector {
+	height: 3rem;
+	background-color: $colorOrange;
+	border-radius: 50px;
+	color: $colorWhite;
+	font-size: 85%;
+}
+
+.orang-buton-outline {
+	color: $colorWhite;
+	height: 3rem;
+	width: 9rem;
+	border-radius: 40px;
+	border-color: $colorOrange;
+	@include Media_width(1246px, 992px) {
+		width: 7rem;
+	}
 }

@@ -1,10 +1,57 @@
 .delivery-options {
 	color: $colorWhite;
+	margin-bottom: 30%;
+
+	@include Max_one(991px) {
+		margin-top: 17%;
+	}
+
 	&__title {
 		margin-top: 4%;
 		h2::after {
 			width: 5%;
 			border-bottom: 2px solid $colorGreen;
+		}
+
+		@include Max_one(991px) {
+			display: flex;
+			justify-content: center;
+			margin-left: auto;
+			margin-right: auto;
+
+			h2 {
+				width: 80%;
+				&::after {
+					width: 20%;
+					left: 35%;
+					border-bottom: 2px solid $colorGreen;
+				}
+			}
+		}
+	}
+
+	.card {
+		.card-img-top {
+			height: 230px;
+		}
+
+		&-body {
+			background-color: $colorGray;
+			border-radius: 0 0 25px 25px;
+			.info_day {
+				width: 70%;
+			}
+			.weight-product {
+				color: $colorGrayBlck;
+			}
+		}
+	}
+
+	.delivery_options__carousel-indicators {
+		display: none;
+		@include Max_one(991px) {
+			display: block;
+			bottom: -16%;
 		}
 	}
 }

@@ -6,6 +6,20 @@
 		.carousel-inner .carousel-item > div:first-child {
 			display: block;
 		}
+
+		.carousel-inner .carousel-item.active,
+		.carousel-inner .carousel-item-next,
+		.carousel-inner .carousel-item-prev {
+			display: block;
+		}
+
+		.carousel-control-prev {
+			display: none;
+		}
+
+		.carousel-control-next {
+			display: none;
+		}
 	}
 
 	.carousel-inner .carousel-item.active,
@@ -30,18 +44,39 @@
 	}
 
 	.carousel-control-prev {
-		right: 100%;
-		left: auto;
+		left: -4%;
+		width: 50px;
+		@include Media_width(1246px, 992px) {
+			left: 0%;
+		}
 	}
 
 	.carousel-control-next {
-		left: 100%;
-		right: auto;
+		right: -4%;
+		width: 50px;
+		@include Media_width(1246px, 992px) {
+			right: 0%;
+		}
 	}
 
 	.card {
-		margin-left: 5%;
-		background-color: $colorTransparent;
-		margin-right: 10%;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: rgba(0, 0, 0, 0);
+		max-width: 21.5rem;
+		border-radius: 25px;
+		@include Media_width(1246px, 992px) {
+			max-width: 20rem;
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	@include Media_width(1246px, 992px) {
+		.carousel-inner {
+			// width: max-content;
+			width: 90%;
+			margin: auto;
+		}
 	}
 }
