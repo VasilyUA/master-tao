@@ -28,7 +28,6 @@
 		"gulp-cache": "^1.1.3",
 		"gulp-cleancss": "^0.2.2",
 		"gulp-concat": "^2.6.1",
-		"gulp-css-url-adjuster": "^0.2.3",
 		"gulp-file-include": "^2.3.0",
 		"gulp-gh-pages": "^0.5.4",
 		"gulp-group-css-media-queries": "^1.2.2",

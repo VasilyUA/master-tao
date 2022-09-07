@@ -22,7 +22,6 @@ import cleanCSS from 'gulp-cleancss';
 import include from 'gulp-file-include';
 import htmlbeautify from 'gulp-html-beautify';
 import webpHtmlNoSvg from 'gulp-webp-html-nosvg';
-import urlAdjuster from 'gulp-css-url-adjuster';
 import gcmq from 'gulp-group-css-media-queries';
 import htmlmin from 'gulp-htmlmin';
 import webp from 'gulp-webp';
@@ -61,11 +60,6 @@ gulp.task('sass', function () {
 				}), // автопрефиксирование
 				mqpacker({ sort: true }), // объединение медиавыражений
 			]),
-		)
-		.pipe(
-			urlAdjuster({
-				prepend: '/',
-			}),
 		)
 		.pipe(replace('img/', '../img/'))
 		.pipe(sourcemaps.write('/')) // записываем карту кода как отдельный файл (путь из константы)
