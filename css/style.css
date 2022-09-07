@@ -213,16 +213,16 @@ body {
 
 .slider-cards-element .carousel-inner .carousel-item-end.active,
 .slider-cards-element .carousel-inner .carousel-item-next {
-  -webkit-transform: translateX(25%);
-      -ms-transform: translateX(25%);
-          transform: translateX(25%);
+  -webkit-transform: translateX(33%);
+      -ms-transform: translateX(33%);
+          transform: translateX(33%);
 }
 
 .slider-cards-element .carousel-inner .carousel-item-start.active,
 .slider-cards-element .carousel-inner .carousel-item-prev {
-  -webkit-transform: translateX(-25%);
-      -ms-transform: translateX(-25%);
-          transform: translateX(-25%);
+  -webkit-transform: translateX(-33%);
+      -ms-transform: translateX(-33%);
+          transform: translateX(-33%);
 }
 
 .slider-cards-element .carousel-inner .carousel-item-end,
@@ -240,6 +240,12 @@ body {
 .slider-cards-element .carousel-control-next {
   left: 100%;
   right: auto;
+}
+
+.slider-cards-element .card {
+  margin-left: 5%;
+  background-color: rgba(0, 0, 0, 0);
+  margin-right: 10%;
 }
 
 .header .header__navbar {
