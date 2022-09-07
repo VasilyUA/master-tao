@@ -1,0 +1,30 @@
+<div class="text-center my-3 slider-cards-element" id="slider-cards_our_services">
+	<div class="row mx-auto my-auto justify-content-center">
+		<div id="recipeCarousel1" class="carousel slide">
+			@@include('./carousel-indicators.html', {id: 'recipeCarousel1'})
+			<div class="carousel-inner" role="listbox">
+				<div class="carousel-item active">
+					<div class="col-lg-4 col-md-12">@@include('./our_services_card.html', { Img: 'img/delivery_options/Rectangle.png', Title: 'Авто - обычная' })</div>
+				</div>
+				<div class="carousel-item">
+					<div class="col-lg-4 col-md-12">@@include('./our_services_card.html', { Img: 'img/delivery_options/Rectangle.png', Title: 'Море' })</div>
+				</div>
+				<div class="carousel-item">
+					<div class="col-lg-4 col-md-12">@@include('./our_services_card.html', { Img: 'img/delivery_options/Rectangle.png', Title: 'Ж/д' })</div>
+				</div>
+				<div class="carousel-item">
+					<div class="col-lg-4 col-md-12">@@include('./our_services_card.html', { Img: 'img/delivery_options/Rectangle.png', Title: 'Авиа' })</div>
+				</div>
+				<div class="carousel-item">
+					<div class="col-lg-4 col-md-12">@@include('./our_services_card.html', { Img: 'img/delivery_options/Rectangle.png', Title: 'Авто - ускоренная' })</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev w-aut" href="#recipeCarousel1" role="button" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			</a>
+			<a class="carousel-control-next w-aut" href="#recipeCarousel1" role="button" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			</a>
+		</div>
+	</div>
+</div>

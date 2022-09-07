@@ -1,0 +1,14 @@
+.our_services {
+	color: $colorWhite;
+	background-color: $colorGray;
+	border-radius: 20px;
+	width: 95%;
+	margin: 1% auto 30%;
+	padding-top: 6%;
+	padding-bottom: 5%;
+	height: 790px;
+	@include Max_one(991px) {
+		height: 100%;
+		margin-top: 30%;
+	}
+}
