@@ -562,6 +562,7 @@ main {
 
 .main-home-page .delivery-options {
   color: #ffffff;
+  margin-bottom: 30%;
 }
 
 .main-home-page .delivery-options__title {
@@ -588,6 +589,10 @@ main {
 
 .main-home-page .delivery-options .card-body .weight-product {
   color: #a3a3a3;
+}
+
+.main-home-page .delivery-options .delivery_options__carousel-indicators {
+  display: none;
 }
 
 .webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] { background-image: url(../img/calculation_order/check-vector.webp); }
@@ -706,6 +711,11 @@ main {
     margin-top: 10px;
     width: 300px;
     height: 66px;
+  }
+
+  .main-home-page .delivery-options .delivery_options__carousel-indicators {
+    display: block;
+    bottom: -20%;
   }
 
   .main-home-page .slider {
