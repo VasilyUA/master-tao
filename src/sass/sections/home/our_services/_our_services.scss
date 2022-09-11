@@ -6,9 +6,32 @@
 	margin: 1% auto 30%;
 	padding-top: 6%;
 	padding-bottom: 5%;
-	height: 790px;
+	height: 760px;
 	@include Max_one(991px) {
+		padding-top: 14%;
 		height: 100%;
 		margin-top: 30%;
+		width: 100%;
+		border-radius: 0;
+		padding-bottom: 30%;
+	}
+
+	.our_services__title {
+		h5 {
+			font-weight: bold;
+		}
+	}
+	.slider-cards-element {
+		margin-top: 6%;
+		.card {
+			img {
+				height: 460px;
+				width: 100%;
+				border-radius: 25px;
+			}
+		}
+	}
+	.our_services__carousel-indicators {
+		bottom: -16%;
 	}
 }
