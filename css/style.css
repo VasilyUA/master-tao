@@ -603,7 +603,25 @@ main {
   margin: 1% auto 30%;
   padding-top: 6%;
   padding-bottom: 5%;
-  height: 790px;
+  height: 760px;
+}
+
+.main-home-page .our_services .our_services__title h5 {
+  font-weight: bold;
+}
+
+.main-home-page .our_services .slider-cards-element {
+  margin-top: 6%;
+}
+
+.main-home-page .our_services .slider-cards-element .card img {
+  height: 460px;
+  width: 100%;
+  border-radius: 25px;
+}
+
+.main-home-page .our_services .our_services__carousel-indicators {
+  bottom: -16%;
 }
 
 .webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] { background-image: url(../img/calculation_order/check-vector.webp); }
@@ -760,8 +778,12 @@ main {
   }
 
   .main-home-page .our_services {
+    padding-top: 14%;
     height: 100%;
     margin-top: 30%;
+    width: 100%;
+    border-radius: 0;
+    padding-bottom: 30%;
   }
 
   .main-home-page .slider {
