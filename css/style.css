@@ -652,7 +652,108 @@ main {
   max-width: 100%;
 }
 
+.main-home-page .usually_questions {
+  color: #ffffff;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.main-home-page .usually_questions .usually_questions__accordion .accordion-item {
+  border: rgba(0, 0, 0, 0);
+  border-radius: 15px;
+  margin: 3% auto;
+  width: 95%;
+}
+
+.main-home-page .usually_questions .usually_questions__accordion .accordion-item h2 {
+  border: none;
+}
+
+.main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button {
+  color: #282b38;
+  background-color: #ffffff;
+  border-radius: 15px;
+  height: 55px;
+  border: none;
+  font-weight: bold;
+}
+
+.no-webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button::after {
+  background-image: url("../img/usually_questions/Vector-open.png"); }
+
+.main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button::after {
+  height: 27px;
+  width: 27px;
+  -webkit-transform: rotate(0turn);
+      -ms-transform: rotate(0turn);
+          transform: rotate(0turn);
+  background-size: 100%;
+}
+
+.main-home-page .usually_questions .usually_questions__accordion .accordion-item [aria-expanded=false] {
+  background-color: #282b38;
+  color: #ffffff;
+  border: 1px solid #3a444e;
+}
+
+.no-webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item [aria-expanded=false]::after {
+  background-image: url("../img/usually_questions/Vector-closed.png"); }
+
+.main-home-page .usually_questions .usually_questions__accordion .accordion-item [aria-expanded=false]::after {
+  height: 27px;
+  width: 27px;
+  background-size: 100%;
+}
+
+.main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button:not(.collapsed) {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-body {
+  padding-top: 0;
+  padding-bottom: 1px;
+}
+
+.main-home-page .usually_questions .usually_questions__form-block {
+  background-color: #363a4d;
+  border-radius: 15px;
+  margin-top: 6%;
+  padding: 9% 9% 10% 2%;
+}
+
+.main-home-page .usually_questions .usually_questions__form-block .usually_questions__form h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.main-home-page .usually_questions .usually_questions__form-block .usually_questions__form p {
+  padding: 0;
+  margin: 0;
+}
+
+.main-home-page .usually_questions .usually_questions__form-block input {
+  height: 52px;
+  border-radius: 10px;
+  font-weight: 100;
+}
+
+.main-home-page .usually_questions .usually_questions__form-block textarea {
+  border-radius: 10px;
+  font-weight: 100;
+}
+
+.main-home-page .usually_questions .usually_questions__form-block .usually_questions__form-btn {
+  margin-top: 3%;
+  position: static;
+  width: 100%;
+}
+
 .webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] { background-image: url(../img/calculation_order/check-vector.webp); }
+
+.webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button::after { background-image: url(../img/usually_questions/Vector-open.webp); }
+
+.webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item [aria-expanded=false]::after { background-image: url(../img/usually_questions/Vector-closed.webp); }
 
 @media screen and (min-width: 991px) {
   .main-home-page .about_company .about_company__title h2::after {
