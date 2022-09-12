@@ -2,9 +2,9 @@
 	color: $colorWhite;
 	background-color: $colorGray;
 	width: 95%;
-	margin: 4.5% auto 0;
+	margin: 4% auto 0;
 	border-radius: 10px;
-	padding-top: 3.6%;
+	padding-top: 4.6%;
 	padding-bottom: 0;
 
 	@include Max_one(991px) {
@@ -29,7 +29,7 @@
 		.ready_for_cooperation_img {
 			img {
 				margin: auto;
-				height: 487px;
+				height: 470px;
 				width: 100%;
 			}
 		}
