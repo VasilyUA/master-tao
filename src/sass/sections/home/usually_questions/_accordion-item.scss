@@ -1,0 +1,46 @@
+.usually_questions__accordion {
+	.accordion-item {
+		border: $colorTransparent;
+		border-radius: 15px;
+		margin: 3% auto;
+		width: 95%;
+		h2 {
+			border: none;
+		}
+		.accordion-button {
+			color: $colorBlack;
+			background-color: $colorWhite;
+			border-radius: 15px;
+			height: 55px;
+			border: none;
+			font-weight: bold;
+			&::after {
+				background-image: url('img/usually_questions/Vector-open.png');
+				height: 27px;
+				width: 27px;
+				transform: rotate(0turn);
+				background-size: 100%;
+			}
+		}
+		[aria-expanded='false'] {
+			background-color: $colorBlack;
+			color: $colorWhite;
+			border: 1px solid #3a444e;
+			&::after {
+				background-image: url('img/usually_questions/Vector-closed.png');
+				height: 27px;
+				width: 27px;
+				background-size: 100%;
+			}
+		}
+
+		.accordion-button:not(.collapsed) {
+			box-shadow: none;
+		}
+
+		.accordion-body {
+			padding-top: 0;
+			padding-bottom: 1px;
+		}
+	}
+}

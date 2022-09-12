@@ -1,25 +1,18 @@
 <section class="usually_questions">
-	<div class="accordion" id="accordionPanelsStayOpenExample">
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="panelsStayOpen-heading1">
-				<button
-					class="accordion-button"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#panelsStayOpen-collapse1"
-					aria-expanded="false"
-					aria-controls="panelsStayOpen-collapse1"
-				>
-					Accordion Item #1
-				</button>
-			</h2>
-			<div id="panelsStayOpen-collapse1" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading1">
-				<div class="accordion-body">
-					<strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each
-					element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our
-					default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+	<div class="container">
+		@@include('../../../elements/title.html', {className: 'usually_questions__title', text: 'Часто задаваемые вопросы'})
+		<div class="row mt-5">
+			<div class="col-lg-8 col-md-12">
+				<div class="accordion usually_questions__accordion" id="accordionPanelsStayOpenExample">
+					<div>@@include('./accordion-item.html', {id: '1', title: 'Как рассчитывается стоимость доставки?', show: '', ariaExpanded: 'false'})</div>
+					<div>@@include('./accordion-item.html',{id: '2', title: 'Как происходит оплата за доставку груза?', show: '', ariaExpanded: 'false'})</div>
+					<div>@@include('./accordion-item.html',{id: '3', title: 'Как быстро оформить заказ на доставку из Китая в Россию?', show: '', ariaExpanded: 'false'})</div>
+					<div>@@include('./accordion-item.html',{id: '4', title: 'Можно ли через вас оплатить товар поставщику?', show: 'show', ariaExpanded: 'true'})</div>
+					<div>@@include('./accordion-item.html',{id: '5', title: 'В чём особенность КАРГО доставки из Китая', show: '', ariaExpanded: 'false'})</div>
+					<div>@@include('./accordion-item.html',{id: '6', title: 'Какой срок доставки из Китая?', show: '', ariaExpanded: 'false'})</div>
 				</div>
 			</div>
+			<div class="col-lg-4 col-md-12">@@include('./form.html',{})</div>
 		</div>
 	</div>
 </section>
