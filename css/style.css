@@ -600,7 +600,7 @@ main {
   background-color: #363a4d;
   border-radius: 20px;
   width: 95%;
-  margin: 1% auto 30%;
+  margin: 1% auto 5%;
   padding-top: 6%;
   padding-bottom: 5%;
   height: 760px;
@@ -624,7 +624,47 @@ main {
   bottom: -16%;
 }
 
+.main-home-page .about_company {
+  color: white;
+}
+
+.main-home-page .about_company .about_company__title {
+  text-align: start;
+}
+
+.main-home-page .about_company .about_company__title h2::after {
+  border-color: #89c249;
+}
+
+.main-home-page .about_company__text-block {
+  text-align: justify;
+}
+
+.main-home-page .about_company__text-block p {
+  margin: 5% auto;
+}
+
+.main-home-page .about_company__content-block {
+  margin-top: 10%;
+}
+
+.main-home-page .about_company img {
+  max-width: 100%;
+}
+
 .webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] { background-image: url(../img/calculation_order/check-vector.webp); }
+
+@media screen and (min-width: 991px) {
+  .main-home-page .about_company .about_company__title h2::after {
+    right: auto;
+    left: 0%;
+    width: 15%;
+  }
+
+  .main-home-page .about_company__text-block p {
+    letter-spacing: 0.1rem;
+  }
+}
 
 @media screen and (max-width: 1250px) and (min-width: 991px) {
   .main-home-page .prospects {
@@ -674,7 +714,7 @@ main {
   }
 
   .section-title h2::after {
-    left: 35%;
+    left: 40%;
     width: 20%;
   }
 
@@ -784,6 +824,16 @@ main {
     width: 100%;
     border-radius: 0;
     padding-bottom: 30%;
+  }
+
+  .main-home-page .about_company .about_company__title {
+    text-align: center;
+  }
+
+  .main-home-page .about_company img {
+    text-align: center;
+    max-width: 300px;
+    height: 300px;
   }
 
   .main-home-page .slider {
