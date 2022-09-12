@@ -4,5 +4,27 @@
 		<h4 class="fs-4 lh-lg fw-lighter">Зарегистрируйте груз!</h4>
 	</div>
 
-	<div class="container"></div>
+	<div class="container ready_for_cooperation_container">
+		<div class="row flex-column-reverse flex-xxl-row flex-xl-row flex-lg-row flex-md-column-reverse flex-sm-column-reverse">
+			<div class="col-lg-6 col-md-12">
+				<ul>
+					@@loop('./list.html', 'data/home/ready_for_cooperation/list-1.json')
+				</ul>
+			</div>
+			<div class="col-lg-6 col-md-12">
+				<div class="ready_for_cooperation_img"><img src="img/ready_for_cooperation/rectangle-container.png" width="635" height="487" alt="Img not found" /></div>
+			</div>
+		</div>
+		<div class="row flex-row-reverse flex-column-reverse flex-md-row-reverse flex-sm-row-reverse">
+			<div class="col-lg-6 col-md-12">
+				<ul>
+					@@loop('./list.html', 'data/home/ready_for_cooperation/list-2.json')
+				</ul>
+				@@include('./button-block.html', {"isBtn": true})
+			</div>
+			<div class="col-lg-6 col-md-12">
+				<div class="ready_for_cooperation_img"><img src="img/ready_for_cooperation/rectangle-car.png" width="635" height="487" alt="Img not found" /></div>
+			</div>
+		</div>
+	</div>
 </section>

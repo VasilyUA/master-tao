@@ -20,6 +20,7 @@ import notify from 'gulp-notify';
 import plumber from 'gulp-plumber';
 import cleanCSS from 'gulp-cleancss';
 import include from 'gulp-file-include';
+import markdown from 'markdown';
 import htmlbeautify from 'gulp-html-beautify';
 import webpHtmlNoSvg from 'gulp-webp-html-nosvg';
 import gcmq from 'gulp-group-css-media-queries';
@@ -74,7 +75,15 @@ gulp.task('sass', function () {
 gulp.task('html', function () {
 	return gulp
 		.src(dirs.source + '/*.html') // какие файлы обрабатывать (путь из константы, маска имени)
-		.pipe(include())
+		.pipe(
+			include({
+				prefix: '@@',
+				basepath: '@file',
+				filters: {
+					markdown: markdown.parse,
+				},
+			}),
+		)
 		.pipe(htmlbeautify())
 		.pipe(webpHtmlNoSvg())
 		.pipe(

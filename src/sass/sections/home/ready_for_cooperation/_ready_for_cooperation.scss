@@ -5,7 +5,12 @@
 	margin: 4.5% auto 0;
 	border-radius: 10px;
 	padding-top: 3.6%;
-	padding-bottom: 10%;
+	padding-bottom: 0;
+
+	@include Max_one(991px) {
+		width: 100%;
+		padding-bottom: 25%;
+	}
 
 	.ready_for_cooperation_section-title {
 		h2 {
@@ -15,6 +20,39 @@
 				width: 5%;
 				border-bottom: 2px solid $colorGreen;
 			}
+		}
+	}
+
+	.ready_for_cooperation_container {
+		margin-top: 5.3%;
+
+		.ready_for_cooperation_img {
+			img {
+				margin: auto;
+				height: 487px;
+				width: 100%;
+			}
+		}
+
+		ul {
+			list-style: none;
+			padding-left: 3%;
+			li {
+				position: relative;
+				letter-spacing: 0.04rem;
+				padding-bottom: 6%;
+				text-align: start;
+				text-indent: 1.5em;
+				&::before {
+					content: '•';
+					position: absolute;
+					left: -17px;
+				}
+			}
+		}
+
+		.ready_for_cooperation__form-btn {
+			width: 88%;
 		}
 	}
 }
