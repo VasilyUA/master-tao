@@ -320,8 +320,11 @@ main {
   min-height: calc(100vh - 40px);
 }
 
-.footer h2 {
-  color: rgb(0, 60, 255);
+.footer {
+  color: #ffffff;
+  border-top: 3px solid #e58d35;
+  margin: 2.5% auto 0;
+  max-width: 1106px;
 }
 
 .main-home-page .slider {
@@ -800,10 +803,6 @@ main {
   left: -17px;
 }
 
-.main-home-page .ready_for_cooperation .ready_for_cooperation_container .ready_for_cooperation__form-btn {
-  width: 88%;
-}
-
 .webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox]{ background-image: url(../img/calculation_order/check-vector.webp); }
 
 .webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button::after{ background-image: url(../img/usually_questions/Vector-open.webp); }
@@ -995,6 +994,10 @@ main {
   .main-home-page .ready_for_cooperation {
     width: 100%;
     padding-bottom: 25%;
+  }
+
+  .main-home-page .ready_for_cooperation .ready_for_cooperation_container .ready_for_cooperation__form-btn {
+    width: 88%;
   }
 
   .main-home-page .slider {
