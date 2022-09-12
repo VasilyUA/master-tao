@@ -50,9 +50,10 @@
 				}
 			}
 		}
-
-		.ready_for_cooperation__form-btn {
-			width: 88%;
+		@include Max_one(991px) {
+			.ready_for_cooperation__form-btn {
+				width: 88%;
+			}
 		}
 	}
 }

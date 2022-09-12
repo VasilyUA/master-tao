@@ -3,7 +3,8 @@ main {
 }
 
 .footer {
-	h2 {
-		color: rgb(0, 60, 255);
-	}
+	color: $colorWhite;
+	border-top: 3px solid $colorOrange;
+	margin: 2.5% auto 0;
+	max-width: 1106px;
 }
