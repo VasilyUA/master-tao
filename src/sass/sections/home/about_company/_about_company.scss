@@ -1,0 +1,42 @@
+.about_company {
+	color: white;
+	.about_company__title {
+		text-align: start;
+
+		h2::after {
+			border-color: $colorGreen;
+			@include Min_one(991px) {
+				right: auto;
+				left: 0%;
+				width: 15%;
+			}
+		}
+
+		@include Max_one(991px) {
+			text-align: center;
+		}
+	}
+
+	&__text-block {
+		text-align: justify;
+		p {
+			margin: 5% auto;
+			@include Min_one(991px) {
+				letter-spacing: 0.1rem;
+			}
+		}
+	}
+
+	&__content-block {
+		margin-top: 10%;
+	}
+
+	img {
+		max-width: 100%;
+		@include Max_one(991px) {
+			text-align: center;
+			max-width: 300px;
+			height: 300px;
+		}
+	}
+}
