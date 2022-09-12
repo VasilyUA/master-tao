@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 * {
   margin: 0;
   padding: 0;
@@ -502,7 +504,7 @@ main {
   border-color: #ffffff;
 }
 
-.no-webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] {
+.no-webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox]{
   background-image: url("../img/calculation_order/check-vector.png"); }
 
 .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-drag-and-drop-file .drag-and-drop-file {
@@ -678,7 +680,7 @@ main {
   font-weight: bold;
 }
 
-.no-webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button::after {
+.no-webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button::after{
   background-image: url("../img/usually_questions/Vector-open.png"); }
 
 .main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button::after {
@@ -696,7 +698,7 @@ main {
   border: 1px solid #3a444e;
 }
 
-.no-webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item [aria-expanded=false]::after {
+.no-webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item [aria-expanded=false]::after{
   background-image: url("../img/usually_questions/Vector-closed.png"); }
 
 .main-home-page .usually_questions .usually_questions__accordion .accordion-item [aria-expanded=false]::after {
@@ -756,7 +758,7 @@ main {
   margin: 4.5% auto 0;
   border-radius: 10px;
   padding-top: 3.6%;
-  padding-bottom: 10%;
+  padding-bottom: 0;
 }
 
 .main-home-page .ready_for_cooperation .ready_for_cooperation_section-title h2 {
@@ -769,11 +771,44 @@ main {
   border-bottom: 2px solid #89c249;
 }
 
-.webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox] { background-image: url(../img/calculation_order/check-vector.webp); }
+.main-home-page .ready_for_cooperation .ready_for_cooperation_container {
+  margin-top: 5.3%;
+}
 
-.webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button::after { background-image: url(../img/usually_questions/Vector-open.webp); }
+.main-home-page .ready_for_cooperation .ready_for_cooperation_container .ready_for_cooperation_img img {
+  margin: auto;
+  height: 487px;
+  width: 100%;
+}
 
-.webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item [aria-expanded=false]::after { background-image: url(../img/usually_questions/Vector-closed.webp); }
+.main-home-page .ready_for_cooperation .ready_for_cooperation_container ul {
+  list-style: none;
+  padding-left: 3%;
+}
+
+.main-home-page .ready_for_cooperation .ready_for_cooperation_container ul li {
+  position: relative;
+  letter-spacing: 0.04rem;
+  padding-bottom: 6%;
+  text-align: start;
+  text-indent: 1.5em;
+}
+
+.main-home-page .ready_for_cooperation .ready_for_cooperation_container ul li::before {
+  content: "•";
+  position: absolute;
+  left: -17px;
+}
+
+.main-home-page .ready_for_cooperation .ready_for_cooperation_container .ready_for_cooperation__form-btn {
+  width: 88%;
+}
+
+.webp .main-home-page .calculation-order .calculation-order__form-block .calculation-order__form .form-check .form-check-input:checked[type=checkbox]{ background-image: url(../img/calculation_order/check-vector.webp); }
+
+.webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item .accordion-button::after{ background-image: url(../img/usually_questions/Vector-open.webp); }
+
+.webp .main-home-page .usually_questions .usually_questions__accordion .accordion-item [aria-expanded=false]::after{ background-image: url(../img/usually_questions/Vector-closed.webp); }
 
 @media screen and (min-width: 991px) {
   .main-home-page .about_company .about_company__title h2::after {
@@ -955,6 +990,11 @@ main {
     text-align: center;
     max-width: 300px;
     height: 300px;
+  }
+
+  .main-home-page .ready_for_cooperation {
+    width: 100%;
+    padding-bottom: 25%;
   }
 
   .main-home-page .slider {
