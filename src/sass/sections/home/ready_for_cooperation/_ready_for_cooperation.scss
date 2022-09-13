@@ -50,8 +50,14 @@
 				}
 			}
 		}
-		@include Max_one(991px) {
-			.ready_for_cooperation__form-btn {
+		.ready_for_cooperation__form-btn {
+			@include Media_width(1340px, 991px) {
+				width: 20%;
+			}
+			@include Media_width(991px, 550px) {
+				width: 30%;
+			}
+			@include Max_one(550px) {
 				width: 88%;
 			}
 		}

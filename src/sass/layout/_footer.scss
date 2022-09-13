@@ -7,4 +7,55 @@ main {
 	border-top: 2.5px solid $colorOrange;
 	margin: 3% auto 0;
 	max-width: 1106px;
+
+	.footer-logo {
+		margin-top: 6%;
+		@include Max_one(991px) {
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	.footer-contacts {
+		margin-top: 11%;
+		@include Max_one(991px) {
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		p {
+			font-size: 14.5px;
+			&:last-child {
+				width: 70%;
+				@include Max_one(767px) {
+					width: 30%;
+				}
+			}
+		}
+	}
+
+	.social-network-icons {
+		margin-top: 5%;
+		padding-bottom: 25%;
+		@include Max_one(991px) {
+			display: flex;
+			justify-content: center;
+		}
+		a {
+			margin: 0 2px;
+			padding: 0;
+			img {
+				height: 33px;
+				width: 33px;
+			}
+		}
+	}
+
+	.footer-links-block {
+		margin-top: 10%;
+		a {
+			color: $colorWhite;
+		}
+	}
 }
